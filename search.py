@@ -35,7 +35,7 @@ delta_name = ['^', '<', 'v', '>']
 def search(grid,init,goal,cost):
     # ----------------------------------------
     # insert code here
-    # ----------------------------------------
+    ----------------------------------------
     path=[]
     steps=[]
     steps.append( map(add,init, delta[0]))
@@ -50,6 +50,7 @@ def search(grid,init,goal,cost):
     next_steps=[]
     index=0
     for step in steps:
+
     #Check that we dont step outside the grid
         if(step[0]<0 or step[0]>len(grid) or step[1]<0 or
             step[1]>len(grid[0])-1):
@@ -57,7 +58,7 @@ def search(grid,init,goal,cost):
             index+=1
             continue
 #Check that we don't step into a road block
-        if(grid[int(step[0]),int(step[1])]==1):
+        if((grid[step[0]][step[1]])==1):
             print "Illegal step" + str(step)
             index+=1
             continue
@@ -65,7 +66,9 @@ def search(grid,init,goal,cost):
         index += 1
         next_steps.append(step)
 
-
+   #TODO: If next steps is null and we have
+   # not yet hit the destination, the
+   # search has failed
 ########################################
 
     print next_steps
